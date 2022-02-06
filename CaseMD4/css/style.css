@@ -2387,3 +2387,25 @@ ul.links li a:hover {
 }
 
 /*-- //responsive media queries --*/
+
+.header__navbar-item {
+    margin: 0 6px;
+    position: relative;
+    min-height: 26px;
+}
+
+.header__navbar-user {
+    display: flex;
+    justify-items: center;
+    position: relative;
+    align-items: center;
+}
+
+.header__navbar-user-img {
+    margin-right: 15px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    fill: #fff;
+}
