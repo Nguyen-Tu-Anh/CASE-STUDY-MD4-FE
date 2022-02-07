@@ -1635,7 +1635,7 @@ exports.escape = function(html){
 'use strict';
 
 
-var Product = require('./product'),
+var Product = require('./combatAircrafts'),
     Pubsub = require('./util/pubsub'),
     Storage = require('./util/storage'),
     constants = require('./constants'),
