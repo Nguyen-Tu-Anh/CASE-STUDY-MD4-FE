@@ -5,7 +5,7 @@ $(document).ready(function () {
 function showCategory() {
     $.ajax({
         type: "GET",
-        url: "http://localhost:8080/product/3",
+        url: "http://localhost:8080/product/2",
         success: function (data) {
             let str = "";
 
@@ -62,17 +62,10 @@ function showCategory() {
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="googles single-item hvr-outline-out">
-                                                    <form action="#" method="post">
-                                                        <input type="hidden" name="cmd" value="_cart">
-                                                        <input type="hidden" name="add" value="1">
-                                                        <input type="hidden" name="googles_item" value="Farenheit">
-                                                        <input type="hidden" name="amount" value="575.00">
-                                                        <button type="submit" class="googles-cart pgoogles-cart">
+                                                <div class="googles single-item hvr-outline-out">                                                 
+                                                        <button onclick="addProductToCart(${data[i].id})" type="submit" class="googles-cart pgoogles-cart">
                                                             <i class="fas fa-cart-plus"></i>
-                                                        </button>
-                                                    </form>
-
+                                                        </button>                                               
                                                 </div>
                                             </div>
                                             <div class="clearfix"></div>

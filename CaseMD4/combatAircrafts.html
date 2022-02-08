@@ -29,7 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
           rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="js/signIn/signIn.js"></script>
+
 </head>
 
 <body>
@@ -70,12 +70,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
                     <li class="galssescart galssescart2 cart cart box_1">
-                            <input type="hidden" name="cmd" value="_cart">
-                            <input type="hidden" name="display" value="1">
-                            <button class="top_googles_cart" type="submit" name="submit" value="">
-                                My Cart
-                                <i class="fas fa-cart-arrow-down"></i>
-                            </button>
+                        <a href="cart.html" class="top_googles_cart btn">
+                            My Cart
+                            <i class="fas fa-cart-arrow-down"></i>
+                        </a>
                     </li>
                 </ul>
                 </ul>
@@ -208,31 +206,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </ul>
                     </li>
                     <li class="nav-item dropdown active">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button"
-                           data-toggle="dropdown" aria-haspopup="true"
-                           aria-expanded="false">
-                            Shop
-                        </a>
-                        <ul class="dropdown-menu mega-menu ">
-                            <li>
-                                <div class="row">
-                                    <div class="col-md-4 media-list span4 text-left">
-                                        <h5 class="tittle-w3layouts-sub"> Categories </h5>
-                                        <ul>
-                                            <li class="media-mini mt-3">
-                                                <a href="combatAircrafts.html">Máy bay chiến đấu</a>
-                                            </li>
-                                            <li>
-                                                <a href="bomberPlane.html">Máy bay ném bom</a>
-                                            </li>
-                                            <li>
-                                                <a href="combatHelicopters.html">Trực thăng chiến đấu</a>
-                                            </li>
-                                        </ul>
+                        <nav class="navbar navbar-expand-lg bg-light navbar-light py-3 py-lg-0 px-0">
+                            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                                <div class="navbar-nav mr-auto py-0">
+                                    <div class="nav-item dropdown">
+                                        <a href="#" class="nav-link dropdown-toggle"
+                                           id="navbarDropdown1" role="button" aria-haspopup="true"
+                                           aria-expanded="false" data-toggle="dropdown">Shop</a>
+                                        <div class="dropdown-menu rounded-0 m-0">
+                                            <a href="combatAircrafts.html" class="dropdown-item">Máy bay chiến đấu</a>
+                                            <a href="bomberPlane.html" class="dropdown-item">Máy bay ném bom</a>
+                                            <a href="combatHelicopters.html" class="dropdown-item">Trực thăng chiến đấu</a>
+                                        </div>
                                     </div>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </nav>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="contact.html">Contact</a>
@@ -765,8 +754,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <script src="js/bootstrap.js"></script>
 <!-- js file -->
-<script src="js/combatAircrafts.js"></script>
+<script src="categoriesJS/combatAircrafts.js"></script>
 <script src="js/main/logOut.js"></script>
+<script src="js/signIn/signIn.js"></script>
+<script src="cartJS/cartItem.js"></script>
+<script src="cartJS/addCartItem.js"></script>
 </body>
 
 </html>
