@@ -17,7 +17,7 @@ $(document).ready(function () {
                 window.sessionStorage.removeItem('USER_KEY')
                 window.sessionStorage.setItem('USER_KEY',JSON.stringify(data.users));
 
-                window.location.href = 'index.html';
+                window.open(window.location.href);
             }
         })
     })
