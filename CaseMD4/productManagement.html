@@ -31,10 +31,10 @@
                         </li>
                         <li class="nav-item"><a class="nav-link px-2"
                                                 href="homeAdmin.html"
-                                                ><span>User Management</span></a></li>
+                        ><span>User Management</span></a></li>
                         <li class="nav-item"><a class="nav-link px-2"
                                                 href="productManagement.html"
-                                                ><span>Product Management</span></a></li>
+                        ><span>Product Management</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -43,7 +43,8 @@
         <div class="col">
             <div class="e-tabs mb-3 px-3">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item"><a class="nav-link active" href="#">Users</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#">Products</a></li>
+                    <li class="nav-item" style="float: right"><a class="nav-link active btn btn-success" href="#" type="button" data-toggle="modal" data-target="#exampleModal1">Create</a></li>
                 </ul>
             </div>
 
@@ -61,10 +62,10 @@
                                         <tr>
                                             <th>Id</th>
                                             <th>Photo</th>
-                                            <th class="max-width">username</th>
-                                            <th>Full name</th>
-                                            <th>email</th>
-                                            <th>Actions</th>
+                                            <th class="max-width">Name</th>
+                                            <th>Price</th>
+                                            <th>Quantity</th>
+                                            <th>Category</th>
                                         </tr>
                                         </thead>
                                         <tbody id="tbody">
@@ -93,6 +94,56 @@
 
             </div>
 
+
+<!--            create modal-->
+
+            <div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabel1">Update User</h3>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group" hidden>
+                                <label for="idEdit"></label>
+                                <input type="text" class="form-control" id="id">
+                            </div>
+                            <div class="form-group">
+                                <label for="nameEdit">Name</label>
+                                <input type="text" class="form-control" id="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="priceEdit">Price</label>
+                                <input type="text" class="form-control" id="price">
+                            </div>
+                            <div class="form-group">
+                                <label for="imgEdit">Photo</label>
+                                <input type="text" class="form-control" id="img">
+                            </div>
+                            <div class="form-group">
+                                <label for="quantityEdit">Quantity</label>
+                                <input type="text" class="form-control" id="quantity">
+                            </div>
+                            <div class="form-group">
+                                <select id="categoryIdCreate">
+
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-success" onclick="create()" data-dismiss="modal">Create
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!--            editModal-->
 
             <div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2"
@@ -111,24 +162,25 @@
                                 <input type="text" class="form-control" id="idEdit">
                             </div>
                             <div class="form-group">
-                                <label for="nameEdit">Fullname</label>
+                                <label for="nameEdit">Name</label>
                                 <input type="text" class="form-control" id="nameEdit">
                             </div>
                             <div class="form-group">
-                                <label for="usernameEdit">Username</label>
-                                <input type="text" class="form-control" id="usernameEdit">
+                                <label for="priceEdit">Price</label>
+                                <input type="text" class="form-control" id="priceEdit">
                             </div>
                             <div class="form-group">
-                                <label for="avatarEdit">Avatar</label>
-                                <input type="text" class="form-control" id="avatarEdit">
+                                <label for="imgEdit">Photo</label>
+                                <input type="text" class="form-control" id="imgEdit">
                             </div>
                             <div class="form-group">
-                                <label for="emailEdit">Email</label>
-                                <input type="text" class="form-control" id="emailEdit">
+                                <label for="quantityEdit">Quantity</label>
+                                <input type="text" class="form-control" id="quantityEdit">
                             </div>
                             <div class="form-group">
-                                <label for="passwordEdit">Password</label>
-                                <input type="password" class="form-control" id="passwordEdit">
+                                <select id="categoryId">
+
+                                </select>
                             </div>
 
                         </div>
@@ -143,8 +195,6 @@
 
 
             <!--            deleteModal-->
-
-
             <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3"
                  aria-hidden="true">
                 <div class="modal-dialog" role="document">
@@ -161,37 +211,36 @@
                                 <input type="text" class="form-control" id="idDelete">
                             </div>
                             <div class="form-group">
-                                <label for="nameEdit">Fullname</label>
+                                <label for="nameEdit">Name</label>
                                 <input type="text" class="form-control" id="nameDelete">
                             </div>
                             <div class="form-group">
-                                <label for="usernameEdit">Username</label>
-                                <input type="text" class="form-control" id="usernameDelete">
+                                <label for="priceEdit">Price</label>
+                                <input type="text" class="form-control" id="priceDelete">
                             </div>
                             <div class="form-group">
-                                <label for="avatarEdit">Avatar</label>
-                                <input type="text" class="form-control" id="avatarDelete">
+                                <label for="imgEdit">Photo</label>
+                                <input type="text" class="form-control" id="imgDelete">
                             </div>
                             <div class="form-group">
-                                <label for="emailEdit">Email</label>
-                                <input type="text" class="form-control" id="emailDelete">
+                                <label for="quantityEdit">Quantity</label>
+                                <input type="text" class="form-control" id="quantityDelete">
                             </div>
                             <div class="form-group">
-                                <label for="passwordEdit">Password</label>
-                                <input type="password" class="form-control" id="passwordDelete">
+                                <select id="categoryIdDelete">
+
+                                </select>
                             </div>
 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" onclick="Delete()" data-dismiss="modal">
-                                Delete
+                            <button type="button" class="btn btn-danger" onclick="Delete()" data-dismiss="modal">Delete
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-
 
 
         </div>
@@ -203,7 +252,7 @@
     function show(pageNumber) {
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/users?page=" + pageNumber,
+            url: "http://localhost:8080/products?page=" + pageNumber,
             //xử lý khi thành công
             success: function (data) {
                 document.getElementById("tbody").innerHTML = showData(data);
@@ -251,11 +300,11 @@
         for (let i = 0; i < data.length; i++) {
             str += "<tr>"
             str += `<td>${data[i].id}</td>`
-            str += `<td><img src="${data[i].avatar}" height="150" width="200"></td>`
-
-            str += `<td>${data[i].username}</td>`
-            str += `<td>${data[i].name}</td>`
-            str += `<td>${data[i].email}</td>`
+            str += `<td><img src="${data[i].image}" height="150" width="200"></td>`
+            str += `<td>${data[i].nameProduct}</td>`
+            str += `<td>${data[i].price}</td>`
+            str += `<td>${data[i].quantity}</td>`
+            str += `<td>${data[i].category.nameCategory}</td>`
             str += `<td>
 <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal2" onclick="showEdit(${data[i].id})">
             Update
@@ -273,61 +322,79 @@
     }
 
 
-    $(document).ready(function () {
-        let signUpForm = {};
-        let noUser = {
-            message: "no_user"
-        }
-        let noEmail = {
-            message: "no_email"
-        }
-        let createSuccess = {
-            message: "yes"
-        }
-        $('#btn-create-account').click(function () {
-            signUpForm.name = $('#name').val();
-            signUpForm.username = $('#username').val();
-            signUpForm.email = $('#email').val();
-            signUpForm.password = $('#password').val();
-            signUpForm.roles = ["user"];
-            let signUpFormOBJ = JSON.stringify(signUpForm);
 
-            console.log('signUpFormOBJ === ', signUpFormOBJ)
-            $.ajax({
-                url: 'http://localhost:8080/api/auth/signup',
-                method: 'POST',
-                contentType: 'application/json; charset=utf8',
-                data: signUpFormOBJ,
-                success: function (data) {
-                    console.log('data ===', data);
-                    if (JSON.stringify(data) === JSON.stringify(noUser)) {
-                        document.getElementById('status').innerHTML = 'The username is existed! Please try again!'
-                    }
-                    if (JSON.stringify(data) === JSON.stringify(noEmail)) {
-                        document.getElementById('status').innerHTML = 'The Email is existed! Please try again!'
-                    }
-                    if (JSON.stringify(data) === JSON.stringify(createSuccess)) {
-                        document.getElementById('status').innerHTML = 'Create User Account Success!'
-                    }
+    function selectCategories() {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/products/categories",
+
+            success: function (data) {
+                let str = "";
+                for (let i = 0; i < data.length; i++) {
+                    str += `<option value="${data[i].id}"> ${data[i].nameCategory} </option>`
                 }
-            })
+                document.getElementById("categoryId").innerHTML = str;
+                document.getElementById("categoryIdDelete").innerHTML = str;
+                document.getElementById("categoryIdCreate").innerHTML = str;
+            },
+            error: function (err) {
+                console.log(err)
+            }
         })
-    })
+    }
+
+    selectCategories()
+
+
+    function create() {
+        let name = document.getElementById("name").value;
+        let price = document.getElementById("price").value;
+        let img = document.getElementById("img").value;
+        let quantity = document.getElementById("quantity").value;
+        let category = document.getElementById("categoryIdCreate").value;
+
+        let product = {
+            'nameProduct': name,
+            'image': img,
+            'price': price,
+            'quantity': quantity,
+            'category': {'id': category}
+        }
+
+        $.ajax({
+            type: "POST",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            url: "http://localhost:8080/products/create",
+            data: JSON.stringify(product),
+            //xử lý khi thành công
+            success: function () {
+                show(0)
+            },
+            error: function (err) {
+                console.log(err)
+            }
+        })
+    }
+
 
 
     function showEdit(id) {
+        selectCategories()
 
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/users/" + id,
+            url: "http://localhost:8080/products/" + id,
 
             success: function (data) {
                 document.getElementById("idEdit").value = data.id
-                document.getElementById("nameEdit").value = data.name
-                document.getElementById("usernameEdit").value = data.username
-                document.getElementById("emailEdit").value = data.email
-                document.getElementById("avatarEdit").value = data.avatar
-                document.getElementById("passwordEdit").value = data.password
+                document.getElementById("nameEdit").value = data.nameProduct
+                document.getElementById("priceEdit").value = data.price
+                document.getElementById("imgEdit").value = data.image
+                document.getElementById("quantityEdit").value = data.quantity
+                document.getElementById("categoryId").value = data.category.nameCategory
             },
             error: function (err) {
                 console.log(err)
@@ -338,18 +405,18 @@
     function edit() {
         let id = document.getElementById("idEdit").value;
         let name = document.getElementById("nameEdit").value;
-        let avatar = document.getElementById("avatarEdit").value;
-        let username = document.getElementById("usernameEdit").value;
-        let email = document.getElementById("emailEdit").value;
-        let password = document.getElementById("passwordEdit").value;
+        let price = document.getElementById("priceEdit").value;
+        let img = document.getElementById("imgEdit").value;
+        let quantity = document.getElementById("quantityEdit").value;
+        let category = document.getElementById("categoryId").value;
 
-        let user = {
-            id: id,
-            name: name,
-            avatar: avatar,
-            username: username,
-            email: email,
-            password: password
+        let product = {
+            'id': id,
+            'nameProduct': name,
+            'image': img,
+            'price': price,
+            'quantity': quantity,
+            'category': {'id': category}
         }
 
         $.ajax({
@@ -358,8 +425,8 @@
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            url: "http://localhost:8080/users/" + id,
-            data: JSON.stringify(user),
+            url: "http://localhost:8080/products/" + id,
+            data: JSON.stringify(product),
             //xử lý khi thành công
             success: function () {
                 show(0)
@@ -374,22 +441,22 @@
 
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/users/" + id,
+            url: "http://localhost:8080/products/" + id,
 
             success: function (data) {
                 document.getElementById("idDelete").value = data.id
-                document.getElementById("nameDelete").value = data.name
-                document.getElementById("usernameDelete").value = data.username
-                document.getElementById("emailDelete").value = data.email
-                document.getElementById("avatarDelete").value = data.avatar
-                document.getElementById("passwordDelete").value = data.password
+                document.getElementById("nameDelete").value = data.nameProduct
+                document.getElementById("priceDelete").value = data.price
+                document.getElementById("imgDelete").value = data.image
+                document.getElementById("quantityDelete").value = data.quantity
+                document.getElementById("categoryDelete").value = data.category.nameCategory
+
             },
             error: function (err) {
                 console.log(err)
             }
         })
     }
-
 
     function Delete() {
         let id = document.getElementById("idDelete").value;
@@ -400,7 +467,7 @@
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            url: "http://localhost:8080/users/" + id,
+            url: "http://localhost:8080/products/" + id,
             //xử lý khi thành công
             success: function (data) {
                 show(0)
@@ -416,7 +483,7 @@
     function countUser() {
         $.ajax({
             type: "GET",
-            url: "http://localhost:8080/users/countUsers",
+            url: "http://localhost:8080/products/countProducts",
             success: function (data) {
                 totalUser = data
             },
