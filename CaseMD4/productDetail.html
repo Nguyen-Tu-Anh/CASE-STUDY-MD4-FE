@@ -2,7 +2,7 @@
 <html lang="zxx">
 
 <head>
-	<title>Goggles Ecommerce Category Bootstrap responsive Web Template | Single :: w3layouts</title>
+	<title>Product Detail</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
 	<meta name="keywords" content="Goggles a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -30,6 +30,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<link href="//fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
 	    rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </head>
 
 <body>
@@ -54,20 +56,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="col-md-3 top-info-cart text-right mt-lg-4">
 					<ul class="cart-inner-info">
-						<li class="button-log">
-							<a class="btn-open" href="#">
-								<span class="fa fa-user" aria-hidden="true"></span>
-							</a>
-						</li>
+						<div class="header__navbar-item header__navbar-user">
+							<li class="button-log">
+								<a id="hiddenLogin" class="btn-open" href="#">
+									<h4>Sign In</h4>
+								</a>
+							</li>
+							<div id="usernamee" class="login-register-btn mr-50 mx-3">
+								<a href="profileUser.html"><img id="userAvatar"></a>
+								<span id="nameOfUser">Name</span>
+							</div>
+							<div id="logout" class="login-register-btn mr-50" style="cursor: pointer">
+								<a onclick="logOut()">Log Out</a>
+							</div>
+						</div>
 						<li class="galssescart galssescart2 cart cart box_1">
-							<form action="#" method="post" class="last">
-								<input type="hidden" name="cmd" value="_cart">
-								<input type="hidden" name="display" value="1">
-								<button class="top_googles_cart" type="submit" name="submit" value="">
-									My Cart
-									<i class="fas fa-cart-arrow-down"></i>
-								</button>
-							</form>
+							<a href="cart.html" class="top_googles_cart" type="submit" name="submit" value="">
+								My Cart
+								<i class="fas fa-cart-arrow-down"></i>
+							</a>
+							<a id="admin" href="adminProfile.html" class="btn btn-color-pink submit mb-4">Management</a>
 						</li>
 					</ul>
 					<!---->
@@ -78,23 +86,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="wrap">
 							<h5 class="text-center mb-4">Login Now</h5>
 							<div class="login p-5 bg-dark mx-auto mw-100">
-								<form action="#" method="post">
-									<div class="form-group">
-										<label class="mb-2">Email address</label>
-										<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required="">
-										<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-									</div>
-									<div class="form-group">
-										<label class="mb-2">Password</label>
-										<input type="password" class="form-control" id="exampleInputPassword1" placeholder="" required="">
-									</div>
-									<div class="form-check mb-2">
-										<input type="checkbox" class="form-check-input" id="exampleCheck1">
-										<label class="form-check-label" for="exampleCheck1">Check me out</label>
-									</div>
-									<button type="submit" class="btn btn-primary submit mb-4">Sign In</button>
-
-								</form>
+								<div class="form-group">
+									<label class="mb-2">UserName</label>
+									<input type="text" name="username" class="form-control" id="username"
+										   aria-describedby="emailHelp" placeholder="" required="">
+									<small id="emailHelp" class="form-text text-muted">We'll never share your email with
+										anyone else.</small>
+								</div>
+								<div class="form-group">
+									<label class="mb-2">Password</label>
+									<input type="password" class="form-control" name="password" id="password" placeholder=""
+										   required="">
+								</div>
+								<span id="status_login" style="color: red" class="alert"></span><br>
+								<div class="form-check mb-2">
+									<input type="checkbox" class="form-check-input" id="exampleCheck1">
+									<label class="form-check-label" for="exampleCheck1">Check me out</label>
+								</div>
+								<button id="btn-login" type="submit" class="btn btn-primary submit mb-4">Sign In</button>
+								<a href="SignUp.html" type="submit" class="btn btn-primary submit mb-4">Sign Up</a>
 							</div>
 							<!---->
 						</div>
@@ -129,7 +139,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<button class="navbar-toggler mx-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 				    aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon">
-						
 					</span>
 				</button>
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -247,19 +256,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="container">
 				<div class="inner-sec-shop pt-lg-4 pt-3">
 					<div class="row">
-							<div class="col-lg-4 single-right-left ">
+							<div id="productDetail" class="col-lg-4 single-right-left ">
+								<input type="text" id="id" hidden>
 									<div class="grid images_3_of_2">
 										<div class="flexslider1">
-					
 											<ul class="slides">
 												<li data-thumb="images/d2.jpg">
-													<div class="thumb-image"> <img src="images/d2.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
-												</li>
-												<li data-thumb="images/d1.jpg">
-													<div class="thumb-image"> <img src="images/d1.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
-												</li>
-												<li data-thumb="images/d3.jpg">
-													<div class="thumb-image"> <img src="images/d3.jpg" data-imagezoom="true" class="img-fluid" alt=" "> </div>
+													<div class="thumb-image"> <img id="image" data-imagezoom="true" class="img-fluid" alt=" "> </div>
 												</li>
 											</ul>
 											<div class="clearfix"></div>
@@ -267,9 +270,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 								</div>
 								<div class="col-lg-8 single-right-left simpleCart_shelfItem">
-									<h3>Irayz Butterfly Sunglasses  (Black)</h3>
-									<p><span class="item_price">$650</span>
-										<del>$1,199</del>
+									<h3 id="name"></h3>
+									<p><span id="price" class="item_price"></span>
+<!--										<del>$1,199</del>-->
 									</p>
 									<div class="rating1">
 										<ul class="stars">
@@ -291,40 +294,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="color-quality-right">
 											<h5>Quality :</h5>
 											<select id="country1" onchange="change_country(this.value)" class="frm-field required sect">
-													<option value="null">5 Qty</option>
-													<option value="null">6 Qty</option> 
-													<option value="null">7 Qty</option>					
-													<option value="null">10 Qty</option>								
+													<option id="quantity" value="null"></option>
 												</select>
 										</div>
 									</div>
-									<div class="occasional">
-										<h5>Types :</h5>
-										<div class="colr ert">
-											<label class="radio"><input type="radio" name="radio" checked=""><i></i> Irayz Butterfly(Black)</label>
-										</div>
-										<div class="colr">
-											<label class="radio"><input type="radio" name="radio"><i></i> Irayz Butterfly (Grey)</label>
-										</div>
-										<div class="colr">
-											<label class="radio"><input type="radio" name="radio"><i></i> Irayz Butterfly (white)</label>
-										</div>
-										<div class="clearfix"> </div>
-									</div>
-									<div class="occasion-cart">
-											<div class="googles single-item singlepage">
-													<form action="#" method="post">
-														<input type="hidden" name="cmd" value="_cart">
-														<input type="hidden" name="add" value="1">
-														<input type="hidden" name="googles_item" value="Farenheit">
-														<input type="hidden" name="amount" value="575.00">
-														<button type="submit" class="googles-cart pgoogles-cart">
-															Add to Cart
-														</button>
-														
-													</form>
-		
-												</div>
+									<div id="addToCart" class="occasion-cart">
+
 									</div>
 									<ul class="footer-social text-left mt-lg-4 mt-3">
 											<li>Share On : </li>
@@ -369,17 +344,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="resp-tabs-container">
 											<!--/tab_one-->
 											<div class="tab1">
-					
 												<div class="single_page">
-													<h6>Lorem ipsum dolor sit amet</h6>
-													<p>Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-														blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-														ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-														magna aliqua.</p>
-													<p class="para">Lorem ipsum dolor sit amet, consectetur adipisicing elPellentesque vehicula augue eget nisl ullamcorper, molestie
-														blandit ipsum auctor. Mauris volutpat augue dolor.Consectetur adipisicing elit, sed do eiusmod tempor incididunt
-														ut lab ore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco. labore et dolore
-														magna aliqua.</p>
+													<p id="description"></p>
 												</div>
 											</div>
 											<!--//tab_one-->
@@ -453,7 +419,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<img src="images/s5.jpg" class="img-fluid" alt="">
 														<div class="men-cart-pro">
 															<div class="inner-men-cart-pro">
-																<a href="single.html" class="link-product-add-cart">Quick View</a>
+																<a href="productDetail.html" class="link-product-add-cart">Quick View</a>
 															</div>
 														</div>
 														<span class="product-new-top">New</span>
@@ -464,7 +430,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="grid_meta">
 																<div class="product_price">
 																	<h4>
-																		<a href="single.html">Fastrack Aviator </a>
+																		<a href="productDetail.html">Fastrack Aviator </a>
 																	</h4>
 																	<div class="grid-price mt-2">
 																		<span class="money ">$325.00</span>
@@ -527,7 +493,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<img src="images/s6.jpg" class="img-fluid" alt="">
 														<div class="men-cart-pro">
 															<div class="inner-men-cart-pro">
-																<a href="single.html" class="link-product-add-cart">Quick View</a>
+																<a href="productDetail.html" class="link-product-add-cart">Quick View</a>
 															</div>
 														</div>
 														<span class="product-new-top">New</span>
@@ -538,7 +504,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="grid_meta">
 																<div class="product_price">
 																	<h4>
-																		<a href="single.html">MARTIN Aviator </a>
+																		<a href="productDetail.html">MARTIN Aviator </a>
 																	</h4>
 																	<div class="grid-price mt-2">
 																		<span class="money ">$425.00</span>
@@ -601,7 +567,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<img src="images/s7.jpg" class="img-fluid" alt="">
 														<div class="men-cart-pro">
 															<div class="inner-men-cart-pro">
-																<a href="single.html" class="link-product-add-cart">Quick View</a>
+																<a href="productDetail.html" class="link-product-add-cart">Quick View</a>
 															</div>
 														</div>
 														<span class="product-new-top">New</span>
@@ -612,7 +578,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="grid_meta">
 																<div class="product_price">
 																	<h4>
-																		<a href="single.html">Royal Son Aviator </a>
+																		<a href="productDetail.html">Royal Son Aviator </a>
 																	</h4>
 																	<div class="grid-price mt-2">
 																		<span class="money ">$425.00</span>
@@ -675,7 +641,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<img src="images/s8.jpg" class="img-fluid" alt="">
 														<div class="men-cart-pro">
 															<div class="inner-men-cart-pro">
-																<a href="single.html" class="link-product-add-cart">Quick View</a>
+																<a href="productDetail.html" class="link-product-add-cart">Quick View</a>
 															</div>
 														</div>
 														<span class="product-new-top">New</span>
@@ -686,7 +652,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="grid_meta">
 																<div class="product_price">
 																	<h4>
-																		<a href="single.html">Irayz Butterfly </a>
+																		<a href="productDetail.html">Irayz Butterfly </a>
 																	</h4>
 																	<div class="grid-price mt-2">
 																		<span class="money ">$281.00</span>
@@ -749,7 +715,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<img src="images/s9.jpg" class="img-fluid" alt="">
 														<div class="men-cart-pro">
 															<div class="inner-men-cart-pro">
-																<a href="single.html" class="link-product-add-cart">Quick View</a>
+																<a href="productDetail.html" class="link-product-add-cart">Quick View</a>
 															</div>
 														</div>
 														<span class="product-new-top">New</span>
@@ -760,7 +726,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="grid_meta">
 																<div class="product_price">
 																	<h4>
-																		<a href="single.html">Jerry Rectangular </a>
+																		<a href="productDetail.html">Jerry Rectangular </a>
 																	</h4>
 																	<div class="grid-price mt-2">
 																		<span class="money ">$525.00</span>
@@ -823,7 +789,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 														<img src="images/s10.jpg" class="img-fluid" alt="">
 														<div class="men-cart-pro">
 															<div class="inner-men-cart-pro">
-																<a href="single.html" class="link-product-add-cart">Quick View</a>
+																<a href="productDetail.html" class="link-product-add-cart">Quick View</a>
 															</div>
 														</div>
 														<span class="product-new-top">New</span>
@@ -834,7 +800,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															<div class="grid_meta">
 																<div class="product_price">
 																	<h4>
-																		<a href="single.html">Herdy Wayfarer </a>
+																		<a href="productDetail.html">Herdy Wayfarer </a>
 																	</h4>
 																	<div class="grid-price mt-2">
 																		<span class="money ">$325.00</span>
@@ -1183,9 +1149,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!--// end-smoth-scrolling -->
 
-
 		<script src="js/bootstrap.js"></script>
 		<!-- js file -->
+	<script src="js/main/productDetail.js"></script>
+	<script src="cartJS/addCartItem.js"></script>
+	<script src="cartJS/cartItem.js"></script>
+	<script src="js/main/logOut.js"></script>
+	<script src="js/signIn/signIn.js"></script>
 </body>
 
 </html>

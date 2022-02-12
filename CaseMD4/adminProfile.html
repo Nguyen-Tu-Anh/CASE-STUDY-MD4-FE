@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.2.0/firebase.js"></script>
-
+    <link rel="stylesheet" href="css/freeStyle.css">
 </head>
 <body>
 <script>
@@ -82,9 +82,7 @@
                                                 <div class="row">
                                                     <div class="col">
                                                         <div class="form-group">
-
                                                             <input type="text" id="id" hidden>
-
                                                             <label>Full Name</label>
                                                             <input class="form-control" type="text" name="name"
                                                                    placeholder="John Smith" value="John Smith"
@@ -144,7 +142,6 @@
                                                 </button>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
@@ -153,6 +150,16 @@
                 </div>
 
                 <div class="col-12 col-md-3 mb-3">
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <div class="px-xl-3">
+                                <a href="index.html" class="btn btn-block btn-color-pink">
+                                    <i class="fa fa-sign-out"></i>
+                                    <span>Back to home</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                     <div class="card mb-3">
                         <div class="card-body">
                             <div class="px-xl-3">
@@ -255,7 +262,6 @@
         let id = user.id;
         let img = document.getElementById("imgDiv");
         img.src = user.avatar;
-
 
         document.getElementById("name").value = name;
         document.getElementById("fullName").innerText = name;

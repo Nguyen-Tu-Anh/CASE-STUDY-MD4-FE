@@ -25,6 +25,7 @@ function logOut() {
     window.location.href = 'index.html'
 }
 
+// phan quyen`
 let user = JSON.parse(window.sessionStorage.getItem('USER_KEY'))
 let role = user.roles[0].name
 console.log(role)

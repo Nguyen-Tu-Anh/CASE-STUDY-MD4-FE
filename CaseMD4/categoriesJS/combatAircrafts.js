@@ -11,6 +11,7 @@ function showCategory() {
 
             for (let i = 0; i < data.length; i++) {
                 str += `<div class="col-md-3 product-men women_two shop-gd">
+                                                            <input type="text" id="id" hidden>
                                 <div class="product-googles-info googles">
                                     <div class="men-pro-item">
                                         <div class="men-thumb-item">
@@ -18,7 +19,7 @@ function showCategory() {
                                                  class="img-fluid" alt="">
                                             <div class="men-cart-pro">
                                                 <div class="inner-men-cart-pro">
-                                                    <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                                    <a href="productDetail.html?id=${data[i].id}" class="link-product-add-cart">Quick View</a>
                                                 </div>
                                             </div>
                                             <span class="product-new-top">New</span>
@@ -62,7 +63,7 @@ function showCategory() {
                                                         </li>
                                                     </ul>
                                                 </div>
-                                                <div class="googles single-item hvr-outline-out">
+                                                <div id="addToCart" class="googles single-item hvr-outline-out">
                                                         <button onclick="addProductToCart(${data[i].id})" type="submit" class="googles-cart pgoogles-cart">
                                                             <i class="fas fa-cart-plus"></i>
                                                         </button>
@@ -75,6 +76,30 @@ function showCategory() {
                             </div>`
             }
             document.getElementById("products").innerHTML = str;
+        },
+        error: function (err) {
+            console.log(err)
+        }
+    })
+}
+
+const searchButton = document.getElementById('search-button');
+const searchInput = document.getElementById('search-input');
+searchButton.addEventListener('click', () => {
+    const nameProduct = searchInput.value;
+    showSearchProducts(nameProduct)
+});
+
+function showSearchProducts(nameProduct) {
+    $.ajax({
+        type: "GET",
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        },
+        url: "http://localhost:8080/products/search/" + nameProduct,
+        success: function () {
+            showCategory()
         },
         error: function (err) {
             console.log(err)

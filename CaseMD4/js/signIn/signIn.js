@@ -12,11 +12,17 @@ $(document).ready(function () {
             contentType: 'application/json; charset=utf8',
             success: function (data) {
                 console.log('data login ===> ', data)
+                console.log('data.status', data.status)
+                if(data.status === 202){
+                    document.getElementById('status_login').innerHTML = 'Incorrect account or password! Please try again!';
+                    return
+                }
                 window.sessionStorage.removeItem('TOKEN_KEY')
                 window.sessionStorage.setItem('TOKEN_KEY',data.token);
                 window.sessionStorage.removeItem('USER_KEY')
                 window.sessionStorage.setItem('USER_KEY',JSON.stringify(data.users));
 
+                // window.location.href = 'index.html';
                 window.open(window.location.href);
             }
         })

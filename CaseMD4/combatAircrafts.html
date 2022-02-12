@@ -97,6 +97,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <input type="password" class="form-control" name="password" id="password" placeholder=""
                                        required="">
                             </div>
+                            <span id="status_login" style="color: red" class="alert"></span><br>
                             <div class="form-check mb-2">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Check me out</label>
@@ -121,13 +122,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <button type="button" class="overlay-close">
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </button>
-                <form action="#" method="post" class="d-flex">
                     <input class="form-control" type="search" placeholder="Search here..." required="">
-                    <button type="submit" class="btn btn-primary submit">
+                    <button class="btn btn-primary submit">
                         <i class="fas fa-search"></i>
                     </button>
-                </form>
-
             </div>
             <!-- open/close -->
         </div>
@@ -258,14 +256,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="side-bar col-lg-3">
                     <div class="search-hotel">
                         <h3 class="agileits-sear-head">Search Here..</h3>
-                        <form action="#" method="post">
-                            <input class="form-control" type="search" name="search" placeholder="Search here..."
+                            <input id="search-input" class="form-control" type="search" name="search" placeholder="Search here..."
                                    required="">
-                            <button class="btn1">
+                            <button id="search-button" class="btn1">
                                 <i class="fas fa-search"></i>
                             </button>
                             <div class="clearfix"></div>
-                        </form>
                     </div>
                     <a href="bomberPlane.html" class="btn btn-secondary">Máy bay ném bom</a>
                     <br>
@@ -342,6 +338,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <br>
                         <div class="row" id="products">
                             <div class="col-md-3 product-men women_two shop-gd">
+                                <input type="text" id="id" hidden>
                                 <div class="product-googles-info googles">
                                     <div class="men-pro-item">
                                         <div class="men-thumb-item">
@@ -349,7 +346,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                  class="img-fluid" alt="">
                                             <div class="men-cart-pro">
                                                 <div class="inner-men-cart-pro">
-                                                    <a href="single.html" class="link-product-add-cart">Quick View</a>
+                                                    <a href="productDetail.html" class="link-product-add-cart">Quick View</a>
                                                 </div>
                                             </div>
                                             <span class="product-new-top">New</span>
@@ -359,7 +356,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <div class="grid_meta">
                                                     <div class="product_price">
                                                         <h4>
-                                                            <a href="single.html"></a>
+                                                            <a href="productDetail.html"></a>
                                                         </h4>
                                                         <div class="grid-price mt-2">
                                                             <span class="money "></span>
@@ -431,7 +428,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <img src="images/s10.jpg" class="img-fluid" alt="">
                                                 <div class="men-cart-pro">
                                                     <div class="inner-men-cart-pro">
-                                                        <a href="single.html" class="link-product-add-cart">Quick
+                                                        <a href="productDetail.html" class="link-product-add-cart">Quick
                                                             View</a>
                                                     </div>
                                                 </div>
@@ -443,7 +440,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                     <div class="grid_meta">
                                                         <div class="product_price">
                                                             <h4>
-                                                                <a href="single.html">Herdy Wayfarer </a>
+                                                                <a href="productDetail.html">Herdy Wayfarer </a>
                                                             </h4>
                                                             <div class="grid-price mt-2">
                                                                 <span class="money ">$325.00</span>
@@ -759,6 +756,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/signIn/signIn.js"></script>
 <script src="cartJS/cartItem.js"></script>
 <script src="cartJS/addCartItem.js"></script>
+<script src="js/main/productDetail.js"></script>
 </body>
 
 </html>

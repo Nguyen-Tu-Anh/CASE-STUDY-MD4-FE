@@ -49,6 +49,7 @@ function getCartList() {
     })
 }
 
+
 function deleteCartItem(id) {
     $.ajax({
         type: "DELETE",
@@ -100,6 +101,7 @@ function updateQuantity(pid, newQuantity) {
                 `
             }
             document.getElementById("cartItem").innerHTML = str;
+            getCartList()
         },
         error: function (error) {
             console.log(error);
